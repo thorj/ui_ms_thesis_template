@@ -1,0 +1,38 @@
+# Examples
+Here are some examples
+
+## R code
+Load some library
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(ggthemes)
+theme_set(theme_tufte() + 
+            theme(panel.border = element_rect('black', fill = NA)))
+```
+
+Load some data 
+
+```{r}
+mtcars %>%
+  filter(row_number() <= 10) %>%
+  kable(booktabs = T, 'latex') %>%
+  kable_styling(full_width = F, 
+                bootstrap_options = 'striped',
+                latex_options = 'hold_position')
+```
+
+## Figures
+Create some simple plot
+
+```{r}
+mtcars %>%
+  select(-vs, -am) %>%
+  gather(variable, value, -cyl) %>%
+  ggplot(aes(x = factor(cyl), y = value)) +
+  geom_boxplot() +
+  facet_wrap(~variable, scales = 'free', ncol = 2)
+```
+
