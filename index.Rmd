@@ -1,0 +1,14 @@
+---
+output:
+  bookdown::pdf_book:
+    toc: no
+    template: null
+    keep_tex: yes
+    includes:
+      in_header: templates/preamble.tex
+      before_body: templates/doc_preface.tex
+documentclass: scrbook
+classoption: twoside, BCOR=10mm
+fontsize: 12pt
+subparagraph: yes
+---

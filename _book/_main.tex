@@ -1,0 +1,254 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[12pt,twoside, BCOR=10mm]{scrbook}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+%\documentclass[a4paper,12pt,twoside,BCOR=10mm]{scrbook}
+
+% Packages
+\usepackage{ucs}
+%\usepackage[icelandic, english]{babel}
+%\usepackage[utf8x]{inputenc}
+\usepackage{t1enc}
+\usepackage{graphicx}
+\usepackage[intoc]{nomencl}
+\usepackage[shortlabels]{enumitem}
+\usepackage{color}
+\usepackage{url}
+\usepackage{eso-pic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[nottoc]{tocbibind}
+\usepackage[sort&compress,authoryear]{natbib}
+\usepackage[sf,normalsize]{subfigure}
+\usepackage[format=plain,labelformat=simple,labelsep=colon]{caption}
+\usepackage{placeins}
+\usepackage{tabularx}
+\usepackage{appendix}
+
+% Configurations
+%\graphicspath{{templates/}}
+
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0cm}
+\raggedbottom
+% \setkomafont{subsection}{\normalfont\sffamily}
+
+% Eins og templatið á að vera
+% \setkomafont{captionlabel}{\itshape}
+% \setkomafont{caption}{\itshape}
+
+% Mun fallegri lausn
+\setkomafont{captionlabel}{\itshape}
+\setkomafont{caption}{\itshape}
+\setkomafont{section}{\FloatBarrier\Large}
+\setcapwidth[l]{\textwidth}
+\setcapindent{1em}
+
+
+% Times new roman
+%\usepackage[T1]{fontenc}
+%\usepackage{mathptmx}
+
+\input{templates/params}
+
+% Function to add footer to frontpage
+\newcommand\BackgroundPic{
+\put(0,0){
+\parbox[b][\paperheight]{\paperwidth}{
+\vfill
+\centering
+\hspace*{-0.6cm}
+\includegraphics[width=\paperwidth,height=\paperheight,
+keepaspectratio]{templates/foot_img.png}
+}}
+\setlength{\unitlength}{\paperwidth}
+\begin{picture}(0,0)(0,-0.15)
+\put(0,0){\color{white}\parbox{1\paperwidth}{\centering\bfseries\sffamily \Large Faculty of \thesisfaculty \\
+University of Iceland\\
+\thesisyear}}
+\end{picture}
+}
+
+\date{}
+
+\begin{document}
+
+\begin{titlepage}
+\thispagestyle{empty}
+\AddToShipoutPicture*{\BackgroundPic}
+%
+\begin{center}
+\vspace*{1cm}
+\includegraphics[width=43.6mm]{templates/UI_logo.png}\\
+\vspace*{3.0cm}
+\huge \sffamily \bfseries \thesistitle
+
+\vspace*{5.5cm}
+\normalfont \Large \sffamily \thesisauthor
+\AddToShipoutPicture*{\BackgroundPic}
+\vfill
+
+\end{center}
+
+\newpage 
+\thispagestyle{empty} \mbox{}
+\newpage
+\vspace*{1.35cm}
+\thispagestyle{empty}
+\begin{center}
+
+\Large \textbf{\sffamily{\MakeUppercase{\thesistitle}}} \\
+
+\vspace*{1.7cm}
+\sffamily{\thesisauthor} \\
+\vspace*{1.8cm}
+\normalsize \thesiscredits~ECTS thesis submitted in partial fulfillment of a \\
+\textit{\thesiskindformal} degree in \thesissubject
+
+\vspace*{1.0cm}
+\large
+\ifnum\thesisnroftutors >1 Advisors \\ \thesistutors \\ \vspace*{0.4cm}
+\else Advisor \\ \thesistutors \\ \vspace*{1.04cm}
+\fi
+Faculty Representative \\
+\thesisrepresentative
+
+\vspace*{0.4cm}
+M.Sc. committee \\
+\thesiscommittee
+
+\vfill
+Faculty of \thesisfaculty \\
+\thesisschool \\
+University of Iceland \\
+Reykjavik, \thesismonth~\thesisyear
+\newpage
+\end{center}
+ \newpage
+ \thispagestyle{empty}
+ \mbox{} \vfill
+ % \setcounter{page}{0} \renewcommand{\baselinestretch}{1.5}\normalsize
+ \sffamily{\thesistitle} \\
+ \sffamily{\thesisshorttitle} \\
+ \thesiscredits ~ECTS thesis submitted in partial fulfillment of a \thesiskind~degree in \thesissubject
+\\ \\
+Copyright \textcopyright~\thesisyear~ \thesisauthor \\
+All rights reserved \\
+
+
+Faculty of \thesisfaculty \\
+\thesisschool \\
+University of Iceland \\
+\thesisaddress \\
+\thesispostalcode, Reykjavik \\
+Iceland
+
+Telephone: \thesistelephone \\ \\
+\vspace*{\lineskip}
+
+Bibliographic information: \\
+\thesisauthor, \thesisyear, \thesistitle, \thesiskind~thesis, Faculty of \thesisfaculty, University of Iceland. \\
+
+ISBN~\thesisISBN
+
+Printing: \thesisPrinting \\
+Reykjavik, Iceland, \thesismonth~\thesisyear \\
+\newpage
+\thispagestyle{empty} \mbox{}
+\vfill
+\begin{center}\textit{\thesisdedication}\end{center} \vspace*{5cm}
+\vfill 
+
+\thispagestyle{empty}
+\cleardoublepage
+\end{titlepage}
+
+
+% \dedication{\textit{Dedication} \small \\ Tileinkun má sleppa og skal þá fjarlægja blaðsíðuna. \\
+% Tileinkun skal birtast á oddatölu blaðsíðu (hægri síðu).}
+\pagenumbering{roman}
+
+\setcounter{page}{5}
+\section*{\huge Abstract}
+bla
+\vfill \vspace*{1cm}
+\section*{\huge Útdráttur}
+bla
+\vfill
+\newpage
+
+\chapter*{Preface}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\chapter*{Abbreviations}
+\addcontentsline{toc}{chapter}{Abbreviations}
+
+\chapter*{Acknowledgments}
+\addcontentsline{toc}{chapter}{Acknowledgments}
+
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\hypertarget{introduction}{%
+\chapter{Introduction}\label{introduction}}
+
+\hypertarget{data}{%
+\chapter{Data}\label{data}}
+
+The data used in this study was generated by students at the University of Iceland registered in the course Practical Mathematical Analysis (STÆ105) during the fall semester of 2018. The course was 8 ECT credits and covered a breadth of topics ranging from simple algebraic manipulations of mathematical expressions to single and multidimensional differential and integral calculus.
+
+Throughout the semester students were assigned seven assignments on \texttt{tutor-web}. For the first six assignments they were expected to answer at least 30 questions correctly to validate their work. For the seventh and final assignment 25 correct answers was deemed to be sufficient. As the students' performance on said assignments counted towards their final grade for the course, some students decided to answer more than the minimum requirement.
+
+\hypertarget{exploratory-analysis}{%
+\chapter{Exploratory Analysis}\label{exploratory-analysis}}
+
+bla bla bla etta er fyrir eggert
+
+\end{document}
