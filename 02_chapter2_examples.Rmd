@@ -13,12 +13,13 @@ theme_set(theme_tufte() +
             theme(panel.border = element_rect('black', fill = NA)))
 ```
 
-Load some data 
+Load some data and create some table.
 
 ```{r}
 mtcars %>%
   filter(row_number() <= 10) %>%
-  kable(booktabs = T, 'latex') %>%
+  kable(booktabs = T, 'latex',
+        caption = "Some table") %>%
   kable_styling(full_width = F, 
                 bootstrap_options = 'striped',
                 latex_options = 'hold_position')
@@ -27,7 +28,7 @@ mtcars %>%
 ## Figures
 Create some simple plot
 
-```{r}
+```{r, fig.cap = "Some boxplot"}
 mtcars %>%
   select(-vs, -am) %>%
   gather(variable, value, -cyl) %>%
@@ -36,3 +37,5 @@ mtcars %>%
   facet_wrap(~variable, scales = 'free', ncol = 2)
 ```
 
+### Discussion
+This is some subsection where we discuss this and that.

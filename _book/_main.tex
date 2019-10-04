@@ -321,13 +321,14 @@ Load some library
 \end{Highlighting}
 \end{Shaded}
 
-Load some data
+Load some data and create some table.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{mtcars }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{filter}\NormalTok{(}\KeywordTok{row_number}\NormalTok{() }\OperatorTok{<=}\StringTok{ }\DecValTok{10}\NormalTok{) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{kable}\NormalTok{(}\DataTypeTok{booktabs =}\NormalTok{ T, }\StringTok{'latex'}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{kable}\NormalTok{(}\DataTypeTok{booktabs =}\NormalTok{ T, }\StringTok{'latex'}\NormalTok{,}
+        \DataTypeTok{caption =} \StringTok{"Some table"}\NormalTok{) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{kable_styling}\NormalTok{(}\DataTypeTok{full_width =}\NormalTok{ F, }
                 \DataTypeTok{bootstrap_options =} \StringTok{'striped'}\NormalTok{,}
                 \DataTypeTok{latex_options =} \StringTok{'hold_position'}\NormalTok{)}
@@ -335,6 +336,8 @@ Load some data
 \end{Shaded}
 
 \begin{table}[!h]
+
+\caption{\label{tab:unnamed-chunk-2}Some table}
 \centering
 \begin{tabular}{rrrrrrrrrrr}
 \toprule
@@ -371,6 +374,15 @@ Create some simple plot
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}
+\centering
 \includegraphics{_main_files/figure-latex/unnamed-chunk-3-1.pdf}
+\caption{\label{fig:unnamed-chunk-3}Some boxplot}
+\end{figure}
+
+\hypertarget{discussion}{%
+\subsection{Discussion}\label{discussion}}
+
+This is some subsection where we discuss this and that.
 
 \end{document}
