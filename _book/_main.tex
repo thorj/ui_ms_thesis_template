@@ -94,7 +94,6 @@
 \usepackage{t1enc}
 \usepackage{graphicx}
 \usepackage[intoc]{nomencl}
-\usepackage[a4paper,left=3cm,right=2cm,top=2.5cm,bottom=2.0cm, includefoot]{geometry}
 \usepackage[shortlabels]{enumitem}
 \usepackage{color}
 \usepackage{url}
@@ -103,20 +102,22 @@
 \usepackage{amssymb}
 \usepackage[nottoc]{tocbibind}
 \usepackage[sort&compress,authoryear]{natbib}
+\usepackage{mathrsfs}
 \usepackage[sf,normalsize]{subfigure}
 \usepackage[format=plain,labelformat=simple,labelsep=colon]{caption}
 \usepackage{placeins}
 \usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{float}
 \usepackage{appendix}
-\usepackage{titlesec}
 \usepackage[a4paper,left=3cm,right=2cm,top=2.5cm,bottom=2.0cm, includefoot]{geometry}
 
 % Configurations
 %\graphicspath{{templates/}}
 
-\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+%\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+%\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+%\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 
 \setlength{\parskip}{\baselineskip}
 \setlength{\parindent}{0cm}
@@ -336,7 +337,7 @@ Load some data and create some table which can be seen in table \ref{tab:table1}
 
 \begin{table}[!h]
 
-\caption{\label{tab:unnamed-chunk-3}\label{tab:table1} Some table}
+\caption{\label{tab:unnamed-chunk-4}\label{tab:table1} Some table}
 \centering
 \begin{tabular}[t]{rrrrrrrrrrr}
 \toprule
