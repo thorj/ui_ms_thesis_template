@@ -1,4 +1,5 @@
 ---
+bibliography: refs.bib
 output:
   bookdown::pdf_book:
     toc: no
@@ -11,4 +12,14 @@ documentclass: scrbook
 classoption: twoside, BCOR=10mm
 fontsize: 12pt
 subparagraph: yes
+link-citations: yes
+#csl: ieee-with-url.csl
 ---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+source('scripts/settings.R')
+rb <- function() {
+  bookdown::render_book('index.Rmd')
+}
+```
+

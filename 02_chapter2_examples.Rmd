@@ -13,29 +13,29 @@ theme_set(theme_tufte() +
             theme(panel.border = element_rect('black', fill = NA)))
 ```
 
-Load some data and create some table.
+Load some data and create some table which can be seen in table \@ref(tab:table1)
 
 ```{r}
 mtcars %>%
   filter(row_number() <= 10) %>%
   kable(booktabs = T, 'latex',
-        caption = "Some table") %>%
+        caption = "(\\#tab:table1) Some table") %>%
   kable_styling(full_width = F, 
                 bootstrap_options = 'striped',
                 latex_options = 'hold_position')
 ```
 
 ## Figures
-Create some simple plot
+Create some simple plot which can be seen in figure \ref{fig:figure1}.
 
-```{r, fig.cap = "Some boxplot"}
-mtcars %>%
-  select(-vs, -am) %>%
-  gather(variable, value, -cyl) %>%
-  ggplot(aes(x = factor(cyl), y = value)) +
-  geom_boxplot() +
-  facet_wrap(~variable, scales = 'free', ncol = 2)
+```{r figure1, fig.cap = "Blablabla"}
+include_graphics('img/img1.png')
 ```
 
 ### Discussion
-This is some subsection where we discuss this and that.
+This is some subsection where we discuss this and that. Function in equation \@ref(eq:sineq)
+
+\begin{equation}
+(\#eq:sineq)
+f(x) = \sin(x)
+\end{equation}

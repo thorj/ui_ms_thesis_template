@@ -1,5 +1,5 @@
 # Introduction
-This is the introduction
+Þetta er ný prufa 123 abc d með citation [@ref1]:
 
 ## Some section
 This is some section

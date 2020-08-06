@@ -1,7 +1,7 @@
 \PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
 %
-\documentclass[12pt,oneside]{book}
+\documentclass[12pt,twoside, BCOR=10mm]{scrbook}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -54,10 +54,10 @@
 \usepackage{t1enc}
 \usepackage{graphicx}
 \usepackage[intoc]{nomencl}
-\usepackage{enumerate,color}
+\usepackage[a4paper,left=3cm,right=2cm,top=2.5cm,bottom=2.0cm, includefoot]{geometry}
+\usepackage[shortlabels]{enumitem}
+\usepackage{color}
 \usepackage{url}
-\usepackage[pdfborder={0 0 0}]{hyperref}
-\usepackage{appendix}
 \usepackage{eso-pic}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -67,8 +67,15 @@
 \usepackage[format=plain,labelformat=simple,labelsep=colon]{caption}
 \usepackage{placeins}
 \usepackage{tabularx}
+\usepackage{appendix}
+\usepackage{titlesec}
+
 % Configurations
-\graphicspath{{templates/}}
+%\graphicspath{{templates/}}
+
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 
 \setlength{\parskip}{\baselineskip}
 \setlength{\parindent}{0cm}
@@ -91,30 +98,7 @@
 %\usepackage[T1]{fontenc}
 %\usepackage{mathptmx}
 
-%%%%%%%%%%% MODIFY THESE LINES ONLY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\def\thesisyear{20XX}       						% Year thesis submitted
-\def\thesismonth{XXmonth}						% Month thesis submitted
-\def\thesisauthor{XXAuthor name}					% Thesis authoreiningaraðferðinni
-\def\thesistitle{XXTitle} 						% Title of thesis
-\def\thesisshorttitle{XXShort title (50 characters including spaces)} 	% Title of thesis
-\def\thesiscredits{XX} 							% Credits awarded for the project
-\def\thesissubject{XX}
-\def\thesiskind{M.Sc.}							% Masters of PhD thesis
-\def\thesiskindformal{Magister Scientiarum}				% Masters of PhD thesis
-\def\thesisnroftutors{1}						% Number of tutors
-\def\thesisschool{School of Engineering and {Natural Sciences}}		% School
-\def\thesisfaculty{XX}							% Faculty
-\def\thesisaddress{XXFaculty street address}				% Office address
-\def\thesispostalcode{XXFaculty postal code, Reykjavik}			% Office address
-\def\thesistelephone{525 4000}						% Office telephone
-\def\thesispublisher{XX}						% Publisher
-\def\thesistutors{XXNN1 \\ XXNN2}
-\def\thesisrepresentative{XXNN3}					% Tutors name
-\def\thesiscommittee{XXNN4 \\ XXNN5 }
-\def\thesiskeywords{Keyword1, Keyword2, Keyword3}			% Keywords
-\def\thesisISBN{XX}           						% Thesis ISBN number
-\def\thesisdedication{Dedication}
-\def\thesisPrinting{Háskólaprent, Fálkagata 2, 107 Reykjavík}
+\input{templates/params}
 
 % Function to add footer to frontpage
 \newcommand\BackgroundPic{
@@ -134,7 +118,8 @@ University of Iceland\\
 \end{picture}
 }
 
-\date{}
+\author{}
+\date{\vspace{-2.5em}}
 
 \begin{document}
 
@@ -144,7 +129,7 @@ University of Iceland\\
 %
 \begin{center}
 \vspace*{1cm}
-\includegraphics[width=43.6mm]{templates/UI_logo.png}\\
+\includegraphics[width=43.6mm]{templates/UI_logo.pdf}\\
 \vspace*{3.0cm}
 \huge \sffamily \bfseries \thesistitle
 
@@ -254,9 +239,10 @@ bla
 \chapter*{Acknowledgments}
 \addcontentsline{toc}{chapter}{Acknowledgments}
 
-\hypertarget{introduction}{%
-\chapter{Introduction}\label{introduction}}
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
 
-Here is the introduction to my thesis.
+
 
 \end{document}

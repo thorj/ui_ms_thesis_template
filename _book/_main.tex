@@ -75,15 +75,6 @@
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
-\usepackage{graphicx,grffile}
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -103,6 +94,7 @@
 \usepackage{t1enc}
 \usepackage{graphicx}
 \usepackage[intoc]{nomencl}
+\usepackage[a4paper,left=3cm,right=2cm,top=2.5cm,bottom=2.0cm, includefoot]{geometry}
 \usepackage[shortlabels]{enumitem}
 \usepackage{color}
 \usepackage{url}
@@ -116,9 +108,15 @@
 \usepackage{placeins}
 \usepackage{tabularx}
 \usepackage{appendix}
+\usepackage{titlesec}
+\usepackage[a4paper,left=3cm,right=2cm,top=2.5cm,bottom=2.0cm, includefoot]{geometry}
 
 % Configurations
 %\graphicspath{{templates/}}
+
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 
 \setlength{\parskip}{\baselineskip}
 \setlength{\parindent}{0cm}
@@ -161,7 +159,8 @@ University of Iceland\\
 \end{picture}
 }
 
-\date{}
+\author{}
+\date{\vspace{-2.5em}}
 
 \begin{document}
 
@@ -171,7 +170,7 @@ University of Iceland\\
 %
 \begin{center}
 \vspace*{1cm}
-\includegraphics[width=43.6mm]{templates/UI_logo.png}\\
+\includegraphics[width=43.6mm]{templates/UI_logo.pdf}\\
 \vspace*{3.0cm}
 \huge \sffamily \bfseries \thesistitle
 
@@ -288,7 +287,7 @@ bla
 \hypertarget{introduction}{%
 \chapter{Introduction}\label{introduction}}
 
-This is the introduction
+Þetta er ný prufa 123 abc d með citation (Xie \protect\hyperlink{ref-ref1}{2016}):
 
 \hypertarget{some-section}{%
 \section{Some section}\label{some-section}}
@@ -321,14 +320,14 @@ Load some library
 \end{Highlighting}
 \end{Shaded}
 
-Load some data and create some table.
+Load some data and create some table which can be seen in table \ref{tab:table1}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{mtcars }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{filter}\NormalTok{(}\KeywordTok{row_number}\NormalTok{() }\OperatorTok{<=}\StringTok{ }\DecValTok{10}\NormalTok{) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{kable}\NormalTok{(}\DataTypeTok{booktabs =}\NormalTok{ T, }\StringTok{'latex'}\NormalTok{,}
-        \DataTypeTok{caption =} \StringTok{"Some table"}\NormalTok{) }\OperatorTok{%>%}
+        \DataTypeTok{caption =} \StringTok{"(}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{#tab:table1) Some table"}\NormalTok{) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{kable_styling}\NormalTok{(}\DataTypeTok{full_width =}\NormalTok{ F, }
                 \DataTypeTok{bootstrap_options =} \StringTok{'striped'}\NormalTok{,}
                 \DataTypeTok{latex_options =} \StringTok{'hold_position'}\NormalTok{)}
@@ -337,9 +336,9 @@ Load some data and create some table.
 
 \begin{table}[!h]
 
-\caption{\label{tab:unnamed-chunk-2}Some table}
+\caption{\label{tab:unnamed-chunk-3}\label{tab:table1} Some table}
 \centering
-\begin{tabular}{rrrrrrrrrrr}
+\begin{tabular}[t]{rrrrrrrrrrr}
 \toprule
 mpg & cyl & disp & hp & drat & wt & qsec & vs & am & gear & carb\\
 \midrule
@@ -361,28 +360,34 @@ mpg & cyl & disp & hp & drat & wt & qsec & vs & am & gear & carb\\
 \hypertarget{figures}{%
 \section{Figures}\label{figures}}
 
-Create some simple plot
+Create some simple plot which can be seen in figure \ref{fig:figure1}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{mtcars }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{select}\NormalTok{(}\OperatorTok{-}\NormalTok{vs, }\OperatorTok{-}\NormalTok{am) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{gather}\NormalTok{(variable, value, }\OperatorTok{-}\NormalTok{cyl) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{factor}\NormalTok{(cyl), }\DataTypeTok{y =}\NormalTok{ value)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{() }\OperatorTok{+}
-\StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(}\OperatorTok{~}\NormalTok{variable, }\DataTypeTok{scales =} \StringTok{'free'}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{2}\NormalTok{)}
+\KeywordTok{include_graphics}\NormalTok{(}\StringTok{'img/img1.png'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}
-\centering
-\includegraphics{_main_files/figure-latex/unnamed-chunk-3-1.pdf}
-\caption{\label{fig:unnamed-chunk-3}Some boxplot}
+\includegraphics[width=26.67in]{img/img1} \caption{Blablabla}\label{fig:figure1}
 \end{figure}
 
 \hypertarget{discussion}{%
 \subsection{Discussion}\label{discussion}}
 
-This is some subsection where we discuss this and that.
+This is some subsection where we discuss this and that. Function in equation \eqref{eq:sineq}
+
+\begin{equation}
+\label{eq:sineq}
+f(x) = \sin(x)
+\end{equation}
+
+\hypertarget{references}{%
+\chapter*{References}\label{references}}
+\addcontentsline{toc}{chapter}{References}
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-ref1}{}%
+Xie, Yihui. 2016. \emph{Bookdown: Authoring Books and Technical Documents with R Markdown}. Boca Raton, Florida: Chapman; Hall/CRC. \url{https://github.com/rstudio/bookdown}.
 
 \end{document}
