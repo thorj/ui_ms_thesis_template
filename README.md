@@ -1,7 +1,7 @@
 # ui_ms_thesis_template
 University of iceland: Thesis Template
 
-  1. To "knit" the book type the following into the console: *bookdown::render_book('index.Rmd')*. The "knitted" book can be found in folder *main_*
+  1. To "knit" the book type the following into the console: *bookdown::render_book('index.Rmd')*. The "knitted" book can be found in folder *_book*
   
   2. To add more chapters, create a new .Rmd file with prefix 0X where X is the chapter number. For example, 04_chapteraboutdogs.Rmd could be the fourth chapter.
   
