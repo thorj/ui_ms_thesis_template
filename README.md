@@ -9,7 +9,8 @@ University of iceland: Thesis Template
   
   4. To change thesis author etc refer to *templates/params.tex*.
   
-  5. I encourage you to tailor the settings script located at *scripts/settings.R* for your own needs.
+  5. I encourage you to tailor the settings script located at *scripts/settings.R* to your own needs.
   
 Based on a template outlined by Lucy McGowan:
+
 https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/
