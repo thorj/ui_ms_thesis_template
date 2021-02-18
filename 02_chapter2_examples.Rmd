@@ -19,7 +19,8 @@ Load some data and create some table which can be seen in table \@ref(tab:table1
 mtcars %>%
   filter(row_number() <= 10) %>%
   kable(booktabs = T, 'latex',
-        caption = "(\\#tab:table1) Some table") %>%
+        caption = "(\\#tab:table1) Some table",
+        linesep = '') %>%
   kable_styling(full_width = F, 
                 bootstrap_options = 'striped',
                 latex_options = 'hold_position')

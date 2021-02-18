@@ -1,5 +1,4 @@
 ---
-bibliography: refs.bib
 output:
   bookdown::pdf_book:
     toc: no
@@ -13,6 +12,7 @@ classoption: twoside, BCOR=10mm
 fontsize: 12pt
 subparagraph: yes
 link-citations: yes
+bibliography: refs2.bib
 #csl: ieee-with-url.csl
 ---
 

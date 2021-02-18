@@ -1,5 +1,5 @@
 # Introduction
-Þetta er ný prufa 123 abc d með citation [@ref1]:
+New example with references [@deloukasLargescaleAssociationAnalysis2013] and multiple references [@emilssonCoregulatoryNetworksHuman2018; @franzenCardiometabolicRiskLoci2016]
 
 ## Some section
 This is some section
